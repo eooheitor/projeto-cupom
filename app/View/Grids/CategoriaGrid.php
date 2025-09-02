@@ -10,6 +10,10 @@ class CategoriaGrid extends GridBuilder
     {
         parent::__construct($categorias);
 
+        $this->setTitle('Categorias');
+        $this->setRouteForm('adm.categorias.form');
+        $this->setRouteDelete('categorias.destroy');
+
         $this->column('id', 'ID');
         $this->column('nome', 'Nome');
         $this->column('destaque', 'Destaque', function ($row) {

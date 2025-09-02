@@ -5,10 +5,52 @@ namespace App\View\Base;
 class FormBuilder
 {
     protected array $fields = [];
+    protected string $title = '';
+    protected string $routeForm = '';
+    protected string $method = '';
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
+        return $this;
+    }
+
+    public function setRouteForm(string $routeForm): self
+    {
+        $this->routeForm = $routeForm;
+        return $this;
+    }
+
+    public function setMethod(string $method): self
+    {
+        $this->method = $method;
+        return $this;
+    }
+
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    public function getRouteForm(): string
+    {
+        return $this->routeForm;
+    }
+
+    public function getMethod(): string
+    {
+        return $this->method;
+    }
 
     public function text(string $name, string $label, $value = ''): self
     {
         $this->fields[] = view('components.form.text', compact('name', 'label', 'value'))->render();
+        return $this;
+    }
+
+    public function select(string $name, string $label, array $options = [], $selected = null): self
+    {
+        $this->fields[] = view('components.form.select', compact('name', 'label', 'options', 'selected'))->render();
         return $this;
     }
 

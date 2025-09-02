@@ -40,7 +40,7 @@
                 <span x-show="sidebarOpen" class="whitespace-nowrap font-medium">Categorias</span>
             </a>
 
-            <a href="#"
+            <a href="/adm/cupons"
                 :class="sidebarOpen ? 'justify-start' : 'justify-center'"
                 class="flex items-center gap-2 px-4 py-2 rounded-lg transition hover:bg-[#8a1590] hover:text-white text-gray-700">
                 <x-heroicon-o-briefcase class="w-5 h-5 flex-shrink-0" />

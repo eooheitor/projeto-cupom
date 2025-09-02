@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\CupomController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,10 @@ Route::get('/adm/home', function () {
 
 Route::prefix('adm')->middleware(['auth', 'verified'])->group(function () {
     Route::resource('categorias', CategoriaController::class)->except(['create']);
+});
+
+Route::prefix('adm')->middleware(['auth', 'verified'])->group(function () {
+    Route::resource('cupons', CupomController::class)->except(['create']);
 });
 
 Route::middleware('auth')->group(function () {

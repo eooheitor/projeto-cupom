@@ -12,14 +12,15 @@ class CategoriaForm extends FormBuilder
 
     public function __construct($categoria = null)
     {
-        $this->title  = 'Nova Categoria';
-        $this->route  = route('categorias.store');
-        $this->method = 'POST';
-        
+
+        $this->setTitle('Nova Categoria');
+        $this->setRouteForm(route('categorias.store'));
+        $this->setMethod('POST');
+
         if ($categoria) {
-            $this->title  = 'Editar Categoria';
-            $this->route  = route('categorias.update', $categoria->id);
-            $this->method = 'PUT';
+            $this->setTitle('Editar Categoria');
+            $this->setRouteForm(route('categorias.update', $categoria->id));
+            $this->setMethod('PUT');
         }
 
         $this->build($categoria);
